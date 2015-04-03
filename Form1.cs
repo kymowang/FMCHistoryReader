@@ -43,9 +43,13 @@ namespace FMCReadHistory
         private void Go_Click(object sender, EventArgs e)
         {
             Go.Enabled = false;
+
             foreach (var item in files)
             {
-                HistoryReader.Run(item);
+                if (radioButton1.Checked)
+                    HistoryReader.Run(item);
+                else if (radioButton2.Checked)
+                    GelanshanshuiReader.Run(item);
             }
             Go.Enabled = true;
             textBox1.Text = "请把文件拖过来！";
